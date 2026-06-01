@@ -50,7 +50,7 @@ Aby samodzielnie skompilować projekt ze źródeł, musisz mieć zainstalowane �
 
 1. Sklonuj to repozytorium:
    ```bash
-   git clone https://github.com/TwojUzytkownik/win-ultimate-toolkit.git
+   git clone https://github.com/bartko4321/win-ultimate-toolkit.git
    cd win-ultimate-toolkit
    ```
 
