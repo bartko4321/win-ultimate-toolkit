@@ -76,3 +76,6 @@ Wsparcie numer konta: 06291000060000000005038936
 
 ---
 Stworzone z pasją w 🦀 **Rust**. Jeśli projekt Ci się podoba, zostaw gwiazdkę! ⭐
+
+<img width="1920" height="1050" alt="Zrzut ekranuEN" src="https://github.com/user-attachments/assets/c302d793-ac54-4b24-a8fe-c36cd6c6e9f4" />
+
