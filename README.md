@@ -68,6 +68,8 @@ Aby samodzielnie skompilować projekt ze źródeł, musisz mieć zainstalowane �
 
 ---
 
+Wsparcie numer konta: 06291000060000000005038936
+
 ## ⚠️ Zastrzeżenie (Disclaimer)
 
 *Narzędzie dokonuje zaawansowanych zmian w konfiguracji systemu operacyjnego Windows, w tym w rejestrze systemowym oraz usługach systemowych. Autor nie ponosi odpowiedzialności za ewentualne uszkodzenia systemu, utratę danych lub niestabilność działania spowodowaną nieprawidłowym lub nieświadomym użyciem aplikacji. Przed uruchomieniem agresywnych skryptów czyszczących (Tweaks/Debloater) zaleca się utworzenie punktu przywracania systemu (System Restore Point).*
