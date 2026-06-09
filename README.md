@@ -1,81 +1,80 @@
 # WinUltimate Toolkit 🛠️🚀
 
-**WinUltimate Toolkit** to zaawansowane, graficzne narzędzie do optymalizacji, czyszczenia oraz automatyzacji konfiguracji systemu operacyjnego Windows. Aplikacja została napisana w języku **Rust** przy użyciu nowoczesnej, ultra-szybkiej biblioteki GUI **eframe / egui**. Została stworzona z myślą o zaawansowanych użytkownikach i administratorach, którzy chcą błyskawicznie przystosować "świeżo" zainstalowany system Windows do pracy lub gier, eliminując zbędne usługi, telemetrię i tzw. bloatware.
+**WinUltimate Toolkit** is an advanced, graphical tool for optimizing, cleaning, and automating the configuration of the Windows operating system. The application is written in **Rust** using the modern, ultra-fast GUI library **eframe / egui**. It was built with power users and administrators in mind — people who want to quickly set up a freshly installed Windows system for work or gaming by eliminating unnecessary services, telemetry, and so-called bloatware.
 
-Aplikacja posiada pełne wsparcie **dwujęzyczne (Polski / English)**, automatycznie wykrywając lub pozwalając na przełączenie języka interfejsu.
-
----
-
-## 📺 Główne Moduły i Funkcje
-
-### 1. 📦 Instalator Oprogramowania (Software Installer)
-Masowa, zautomatyzowana instalacja popularnego oprogramowania bez konieczności odwiedzania dziesiątek stron internetowych.
-* **Integracja z Winget:** Narzędzie w pełni wykorzystuje oficjalny menedżer pakietów Windows (`winget`).
-* **Inteligentne sprawdzanie:** Przed instalacją program weryfikuje, czy dana aplikacja nie znajduje się już w systemie, oszczędzając czas i transfer.
-* **Szeroki wybór kategorii:** Przeglądarki, narzędzia programistyczne, odtwarzacze multimedialne, komunikatory i biblioteki uruchomieniowe.
-
-### 2. 🛠️ Narzędzia Systemowe (System Tools)
-Centrum dowodzenia naprawą i diagnostyką systemu za pomocą jednego kliknięcia.
-* **SFC & DISM Scans:** Automatyczne uruchamianie procedur naprawy uszkodzonych plików systemowych oraz obrazu Windows (`sfc /scannow`, `DISM /Online /Cleanup-Image /RestoreHealth`).
-* **Zarządzanie Dyskiem:** Szybkie wywołanie sprawdzania błędów `CHKDSK` oraz wymuszenie optymalizacji i czyszczenia pamięci masowej poleceniem `TRIM` dla dysków SSD.
-* **Optymalizacja sieci:** Błyskawiczna zmiana konfiguracji DNS na ultra-szybkie i bezpieczne serwery **Cloudflare (1.1.1.1)** z jednoczesnym czyszczeniem pamięci podręcznej (`ipconfig /flushdns`).
-
-### 3. 🗑️ Deinstalator Śmieci (Debloater)
-Pozbądź się aplikacji, których Microsoft nie pozwala łatwo usunąć z poziomu standardowego Panelu Sterowania.
-* **Całkowite usunięcie usług Xbox:** Wyłączenie i usunięcie procesów powiązanych z aplikacją Xbox, idealne dla systemów typowo biurowych lub maszyn wirtualnych.
-* **Wyłączenie AI Copilot:** Usunięcie integracji ze sztuczną inteligencją Microsoftu z paska zadań i rejestru.
-* **Usuwanie wbudowanych aplikacji:** Bezpieczne usuwanie Microsoft Edge, systemowych Widżetów, a także alternatywne czyszczenie klasycznych aplikacji takich jak Notatnik, Kalkulator (jeśli wolisz własne zamienniki).
-
-### 4. ⚙️ Optymalizator Usług i Rejestru (Tweaks)
-Zaawansowane modyfikacje systemu mające na celu odzyskanie zasobów RAM/CPU oraz poprawę prywatności.
-* **Blokada Telemetrii:** Maksymalne ograniczenie wysyłania danych diagnostycznych i szpiegujących do serwerów Microsoftu.
-* **Wstrzymanie Windows Update:** Opcja zamrożenia automatycznych aktualizacji systemu nawet do 180 dni (zapobiega nieoczekiwanym restartom w trakcie pracy).
-* **Wydajność Wizualna:** Szybkie przełączenie efektów wizualnych Windows na tryb maksymalnej wydajności (wyłączenie zasobożernych animacji).
-* **Modyfikacje UI:** Personalizacja menu Start, włączanie/wyłączanie ukrytych opcji w Eksploratorze Plików (np. pokazywanie rozszerzeń znanych plików).
+The application features full **bilingual support (Polish / English)**, automatically detecting or allowing the user to switch the interface language.
 
 ---
 
-## 🛠️ Wymagania i Technologie
+## 📺 Main Modules & Features
 
-Projekt bazuje na nowoczesnym i bezpiecznym ekosystemie języka Rust:
-* **Język:** Rust (edycja 2021 lub nowsza)
-* **GUI Framework:** `egui` wraz z backendem `eframe` (zapewniający natywne renderowanie sprzętowe, niskie zużycie RAM-u oraz błyskawiczny czas reakcji).
-* **System operacyjny:** Windows 10 / Windows 11 (wymagane uprawnienia administratora do wykonania większości operacji).
+### 1. 📦 Software Installer
+Bulk, automated installation of popular software without visiting dozens of websites.
+* **Winget integration:** The tool makes full use of the official Windows package manager (`winget`).
+* **Smart detection:** Before installing, the app checks whether a given application is already present on the system, saving time and bandwidth.
+* **Wide category selection:** Browsers, developer tools, media players, messaging apps, and runtime libraries.
+
+### 2. 🛠️ System Tools
+A one-click command center for system repair and diagnostics.
+* **SFC & DISM Scans:** Automated execution of system file repair and Windows image restoration procedures (`sfc /scannow`, `DISM /Online /Cleanup-Image /RestoreHealth`).
+* **Disk Management:** Quick access to `CHKDSK` error checking and forced storage optimization with the `TRIM` command for SSDs.
+* **Network Optimization:** Instantly switch your DNS configuration to the ultra-fast and secure **Cloudflare (1.1.1.1)** servers, with simultaneous DNS cache flushing (`ipconfig /flushdns`).
+
+### 3. 🗑️ Debloater
+Remove apps that Microsoft doesn't allow you to easily uninstall through the standard Control Panel.
+* **Complete Xbox service removal:** Disable and remove all processes related to the Xbox app — ideal for office machines or virtual environments.
+* **Disable AI Copilot:** Remove Microsoft's AI integration from the taskbar and registry.
+* **Built-in app removal:** Safely remove Microsoft Edge, system Widgets, and optionally clean up classic apps like Notepad and Calculator (if you prefer your own alternatives).
+
+### 4. ⚙️ Service & Registry Tweaks
+Advanced system modifications aimed at reclaiming RAM/CPU resources and improving privacy.
+* **Telemetry Blocking:** Maximize restrictions on diagnostic and tracking data being sent to Microsoft's servers.
+* **Windows Update Pause:** Freeze automatic system updates for up to 180 days, preventing unexpected restarts during work.
+* **Visual Performance:** Instantly switch Windows visual effects to maximum performance mode (disabling resource-heavy animations).
+* **UI Modifications:** Customize the Start menu, and toggle hidden options in File Explorer (e.g. showing file extensions for known file types).
 
 ---
 
-## 🚀 Jak Uruchomić i Skompilować
+## 🛠️ Requirements & Technologies
 
-Aby samodzielnie skompilować projekt ze źródeł, musisz mieć zainstalowane środowisko Rust (Cargo).
+The project is built on the modern and safe Rust ecosystem:
+* **Language:** Rust (2021 edition or newer)
+* **GUI Framework:** `egui` with the `eframe` backend (providing native hardware rendering, low RAM usage, and instant responsiveness).
+* **Operating System:** Windows 10 / Windows 11 (administrator privileges required for most operations).
 
-1. Sklonuj to repozytorium:
+---
+
+## 🚀 How to Build & Run
+
+To compile the project from source, you need a Rust environment (Cargo) installed.
+
+1. Clone this repository:
    ```bash
    git clone https://github.com/bartko4321/win-ultimate-toolkit.git
    cd win-ultimate-toolkit
    ```
 
-2. Uruchom program w trybie developerskim:
+2. Run the app in development mode:
    ```bash
    cargo run
    ```
 
-3. Zbuduj zoptymalizowaną wersję produkcyjną (gotowy plik `.exe` znajdziesz w `/target/release/`):
+3. Build an optimized production release (the compiled `.exe` will be found in `/target/release/`):
    ```bash
    cargo build --release
    ```
 
-> 💡 **Wskazówka:** Ponieważ aplikacja dokonuje głębokich modyfikacji w rejestrze i usługach systemowych, **zawsze uruchamiaj skompilowany plik `.exe` jako Administrator**.
+> 💡 **Tip:** Since the application makes deep modifications to the registry and system services, **always run the compiled `.exe` as Administrator**.
 
 ---
 
-Wsparcie numer konta: 06291000060000000005038936
+Bank account for support: 06291000060000000005038936
 
-## ⚠️ Zastrzeżenie (Disclaimer)
+## ⚠️ Disclaimer
 
-*Narzędzie dokonuje zaawansowanych zmian w konfiguracji systemu operacyjnego Windows, w tym w rejestrze systemowym oraz usługach systemowych. Autor nie ponosi odpowiedzialności za ewentualne uszkodzenia systemu, utratę danych lub niestabilność działania spowodowaną nieprawidłowym lub nieświadomym użyciem aplikacji. Przed uruchomieniem agresywnych skryptów czyszczących (Tweaks/Debloater) zaleca się utworzenie punktu przywracania systemu (System Restore Point).*
+*This tool makes advanced changes to the Windows operating system configuration, including the system registry and system services. The author takes no responsibility for any system damage, data loss, or instability caused by incorrect or unintended use of the application. Before running aggressive cleanup scripts (Tweaks/Debloater), it is strongly recommended to create a System Restore Point.*
 
 ---
-Stworzone z pasją w 🦀 **Rust**. Jeśli projekt Ci się podoba, zostaw gwiazdkę! ⭐
+Made with passion in 🦀 **Rust**. If you find this project useful, leave a star! ⭐
 
 <img width="1920" height="1050" alt="Zrzut ekranuEN" src="https://github.com/user-attachments/assets/c302d793-ac54-4b24-a8fe-c36cd6c6e9f4" />
-
