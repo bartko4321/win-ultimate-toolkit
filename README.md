@@ -48,18 +48,22 @@ The project is built on the modern and safe Rust ecosystem:
 
 To compile the project from source, you need a Rust environment (Cargo) installed.
 
-1. Clone this repository:
+1. Clone this repository
    ```bash
    git clone https://github.com/bartko4321/win-ultimate-toolkit.git
+   ```
+   
+2. Enter the downloaded folder
+   ```bash
    cd win-ultimate-toolkit
    ```
 
-2. Run the app in development mode:
+2. Run the app in development mode
    ```bash
    cargo run
    ```
 
-3. Build an optimized production release (the compiled `.exe` will be found in `/target/release/`):
+3. Build an optimized production release (the compiled `.exe` will be found in `/target/release/`)
    ```bash
    cargo build --release
    ```
