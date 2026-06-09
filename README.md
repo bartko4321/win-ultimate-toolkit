@@ -58,12 +58,12 @@ To compile the project from source, you need a Rust environment (Cargo) installe
    cd win-ultimate-toolkit
    ```
 
-2. Run the app in development mode
+3. Run the app in development mode
    ```bash
    cargo run
    ```
 
-3. Build an optimized production release (the compiled `.exe` will be found in `/target/release/`)
+4. Build an optimized production release (the compiled `.exe` will be found in `/target/release/`)
    ```bash
    cargo build --release
    ```
