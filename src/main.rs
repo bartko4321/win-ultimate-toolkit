@@ -113,6 +113,7 @@ impl Default for WinUltimateToolkit {
                 ("LMMS.LMMS", "LMMS", false),
                 ("LMStudio.LMStudio", "LM Studio", false),
                 ("MEGOGO.MEGOGO", "MEGOGO", false),
+                ("Microsoft.PCManager", "Microsoft PC Manager", false),
                 ("Microsoft.PowerToys", "Microsoft PowerToys", false),
                 ("Microsoft.VisualStudio.2022.Community", "Microsoft Visual Studio", false),
                 ("Mixxx.Mixxx", "Mixxx", false),
@@ -358,6 +359,14 @@ impl eframe::App for WinUltimateToolkit {
                     }
                     if ui.button(egui::RichText::new(if self.lang_is_pl { "☕ Wsparcie" } else { "☕ Support" })).clicked() {
                         self.show_support = true;
+                    }
+                    if ui.button(egui::RichText::new(if self.lang_is_pl { "🗃 Folder aplikacji" } else { "🗃 Apps Folder" }))
+                    .on_hover_text("shell:appsFolder").clicked() {
+                        open_apps_folder();
+                    }
+                    if ui.button(egui::RichText::new("👑 God Mode"))
+                    .on_hover_text(if self.lang_is_pl { "Wszystkie ustawienia systemu w jednym folderze" } else { "All system settings in one folder" }).clicked() {
+                        open_god_mode();
                     }
                 });
             });
@@ -1611,6 +1620,20 @@ fn restart_explorer() {
     let _ = Command::new("powershell")
     .creation_flags(CREATE_NO_WINDOW)
     .args(["-NoProfile", "-Command", ps_script])
+    .status();
+}
+
+fn open_apps_folder() {
+    let _ = Command::new("explorer")
+    .creation_flags(CREATE_NO_WINDOW)
+    .args(["shell:appsFolder"])
+    .status();
+}
+
+fn open_god_mode() {
+    let _ = Command::new("explorer")
+    .creation_flags(CREATE_NO_WINDOW)
+    .args(["shell:::{ED7BA470-8E54-465E-825C-99712043E01C}"])
     .status();
 }
 
