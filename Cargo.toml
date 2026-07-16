@@ -1,0 +1,16 @@
+[package]
+name = "WinUltimateToolkit"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+eframe = { version = "0.28", features = ["wgpu", "glow"] }
+image = "0.24"
+msgbox = "0.7.0"
+
+[build-dependencies]
+winres = "0.1.12"
+
+[profile.release]
+strip = true        # Usuwa zbędne teksty i symbole debugowania (największa oszczędność wagi)
+codegen-units = 1   # Maksymalizuje efektywność kompresji kosztem nieco dłuższego czasu kompilacji
