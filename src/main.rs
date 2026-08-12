@@ -11,6 +11,22 @@ use std::path::PathBuf;
 
 const CREATE_NO_WINDOW: u32 = 0x08000000;
 
+const VCREDIST_META_ID: &str = "Meta.VCRedistAll";
+const VCREDIST_IDS: [&str; 12] = [
+    "Microsoft.VCRedist.2005.x64",
+    "Microsoft.VCRedist.2005.x86",
+    "Microsoft.VCRedist.2008.x64",
+    "Microsoft.VCRedist.2008.x86",
+    "Microsoft.VCRedist.2010.x64",
+    "Microsoft.VCRedist.2010.x86",
+    "Microsoft.VCRedist.2012.x64",
+    "Microsoft.VCRedist.2012.x86",
+    "Microsoft.VCRedist.2013.x64",
+    "Microsoft.VCRedist.2013.x86",
+    "Microsoft.VCRedist.2015+.x64",
+    "Microsoft.VCRedist.2015+.x86",
+];
+
 fn program_info(winget_id: &str, lang_is_pl: bool) -> &'static str {
     if lang_is_pl {
         match winget_id {
@@ -140,18 +156,7 @@ fn program_info(winget_id: &str, lang_is_pl: bool) -> &'static str {
         "TikTok.TikTok" => "Aplikacja społecznościowa z krótkimi filmami wideo.",
         "Transmission.Transmission" => "Lekki klient sieci BitTorrent.",
         "Twitch.Twitch" => "Platforma streamingowa dla graczy i twórców.",
-        "Microsoft.VCRedist.2005.x64" => "Biblioteki Visual C++ 2005 (64-bit) wymagane przez niektóre programy.",
-        "Microsoft.VCRedist.2005.x86" => "Biblioteki Visual C++ 2005 (32-bit) wymagane przez niektóre programy.",
-        "Microsoft.VCRedist.2008.x64" => "Biblioteki Visual C++ 2008 (64-bit) wymagane przez niektóre programy.",
-        "Microsoft.VCRedist.2008.x86" => "Biblioteki Visual C++ 2008 (32-bit) wymagane przez niektóre programy.",
-        "Microsoft.VCRedist.2010.x64" => "Biblioteki Visual C++ 2010 (64-bit) wymagane przez niektóre programy.",
-        "Microsoft.VCRedist.2010.x86" => "Biblioteki Visual C++ 2010 (32-bit) wymagane przez niektóre programy.",
-        "Microsoft.VCRedist.2012.x64" => "Biblioteki Visual C++ 2012 (64-bit) wymagane przez niektóre programy.",
-        "Microsoft.VCRedist.2012.x86" => "Biblioteki Visual C++ 2012 (32-bit) wymagane przez niektóre programy.",
-        "Microsoft.VCRedist.2013.x64" => "Biblioteki Visual C++ 2013 (64-bit) wymagane przez niektóre programy.",
-        "Microsoft.VCRedist.2013.x86" => "Biblioteki Visual C++ 2013 (32-bit) wymagane przez niektóre programy.",
-        "Microsoft.VCRedist.2015+.x64" => "Biblioteki Visual C++ 2015+ (64-bit) wymagane przez niektóre programy.",
-        "Microsoft.VCRedist.2015+.x86" => "Biblioteki Visual C++ 2015+ (32-bit) wymagane przez niektóre programy.",
+        "Meta.VCRedistAll" => "Instaluje wszystkie wersje bibliotek Visual C++ (2005-2015+, x86 i x64) wymagane przez różne programy.",
         "ventoy.Ventoy" => "Tworzenie rozruchowych nośników USB z wieloma obrazami ISO.",
         "Oracle.VirtualBox" => "Program do wirtualizacji systemów operacyjnych.",
         "AtomixProductions.VirtualDJ" => "Program do miksowania muzyki dla DJ-ów.",
@@ -293,18 +298,7 @@ fn program_info(winget_id: &str, lang_is_pl: bool) -> &'static str {
         "TikTok.TikTok" => "Short-video social media app.",
         "Transmission.Transmission" => "Lightweight BitTorrent client.",
         "Twitch.Twitch" => "Live streaming platform for gamers and creators.",
-        "Microsoft.VCRedist.2005.x64" => "Visual C++ 2005 (64-bit) runtime required by some apps.",
-        "Microsoft.VCRedist.2005.x86" => "Visual C++ 2005 (32-bit) runtime required by some apps.",
-        "Microsoft.VCRedist.2008.x64" => "Visual C++ 2008 (64-bit) runtime required by some apps.",
-        "Microsoft.VCRedist.2008.x86" => "Visual C++ 2008 (32-bit) runtime required by some apps.",
-        "Microsoft.VCRedist.2010.x64" => "Visual C++ 2010 (64-bit) runtime required by some apps.",
-        "Microsoft.VCRedist.2010.x86" => "Visual C++ 2010 (32-bit) runtime required by some apps.",
-        "Microsoft.VCRedist.2012.x64" => "Visual C++ 2012 (64-bit) runtime required by some apps.",
-        "Microsoft.VCRedist.2012.x86" => "Visual C++ 2012 (32-bit) runtime required by some apps.",
-        "Microsoft.VCRedist.2013.x64" => "Visual C++ 2013 (64-bit) runtime required by some apps.",
-        "Microsoft.VCRedist.2013.x86" => "Visual C++ 2013 (32-bit) runtime required by some apps.",
-        "Microsoft.VCRedist.2015+.x64" => "Visual C++ 2015+ (64-bit) runtime required by some apps.",
-        "Microsoft.VCRedist.2015+.x86" => "Visual C++ 2015+ (32-bit) runtime required by some apps.",
+        "Meta.VCRedistAll" => "Installs all Visual C++ runtime versions (2005-2015+, x86 and x64) required by various apps.",
         "ventoy.Ventoy" => "Creates bootable USB drives holding multiple ISO images.",
         "Oracle.VirtualBox" => "Operating system virtualization software.",
         "AtomixProductions.VirtualDJ" => "DJ mixing and music software.",
@@ -504,18 +498,7 @@ impl Default for WinUltimateToolkit {
                 ("TikTok.TikTok", "TikTok", false),
                 ("Transmission.Transmission", "Transmission", false),
                 ("Twitch.Twitch", "Twitch", false),
-                ("Microsoft.VCRedist.2005.x64", "VCRedist 2005 x64", false),
-                ("Microsoft.VCRedist.2005.x86", "VCRedist 2005 x86", false),
-                ("Microsoft.VCRedist.2008.x64", "VCRedist 2008 x64", false),
-                ("Microsoft.VCRedist.2008.x86", "VCRedist 2008 x86", false),
-                ("Microsoft.VCRedist.2010.x64", "VCRedist 2010 x64", false),
-                ("Microsoft.VCRedist.2010.x86", "VCRedist 2010 x86", false),
-                ("Microsoft.VCRedist.2012.x64", "VCRedist 2012 x64", false),
-                ("Microsoft.VCRedist.2012.x86", "VCRedist 2012 x86", false),
-                ("Microsoft.VCRedist.2013.x64", "VCRedist 2013 x64", false),
-                ("Microsoft.VCRedist.2013.x86", "VCRedist 2013 x86", false),
-                ("Microsoft.VCRedist.2015+.x64", "VCRedist 2015+ x64", false),
-                ("Microsoft.VCRedist.2015+.x86", "VCRedist 2015+ x86", false),
+                ("Meta.VCRedistAll", "VCRedist (all versions)", false),
                 ("ventoy.Ventoy", "Ventoy", false),
                 ("Oracle.VirtualBox", "VirtualBox", false),
                 ("AtomixProductions.VirtualDJ", "VirtualDJ", false),
@@ -1315,6 +1298,10 @@ fn is_winget_available() -> bool {
 }
 
 fn is_package_installed(pkg_id: &str) -> bool {
+    if pkg_id == VCREDIST_META_ID {
+        return VCREDIST_IDS.iter().all(|id| is_package_installed(id));
+    }
+
     let output = Command::new("winget")
     .creation_flags(CREATE_NO_WINDOW)
     .args(["list", "--id", pkg_id, "--exact", "--accept-source-agreements"])
@@ -1332,6 +1319,38 @@ fn install_package(winget_id: &str, pkg_name: &str, lang_is_pl: bool, status: &A
         *status.lock().unwrap() = msg.to_string();
         ctx.request_repaint();
     };
+
+    if winget_id == VCREDIST_META_ID {
+        let mut all_ok = true;
+        for (i, sub_id) in VCREDIST_IDS.iter().enumerate() {
+            update_status(&if lang_is_pl {
+                format!("Instalowanie (Winget): {} ({}/{})", pkg_name, i + 1, VCREDIST_IDS.len())
+            } else {
+                format!("Installing (Winget): {} ({}/{})", pkg_name, i + 1, VCREDIST_IDS.len())
+            });
+
+            let success = Command::new("winget")
+            .creation_flags(CREATE_NO_WINDOW)
+            .args(["install", "--id", sub_id, "-e", "--source", "winget", "--silent", "--accept-package-agreements", "--accept-source-agreements"])
+            .status()
+            .map_or(false, |s| s.success());
+
+            if !success {
+                all_ok = false;
+            }
+        }
+
+        if !all_ok {
+            update_status(&if lang_is_pl {
+                format!("Błąd pobierania. Otwieranie strony: {}", pkg_name)
+            } else {
+                format!("Download failed. Opening website: {}", pkg_name)
+            });
+            open_url("https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist");
+        }
+
+        return all_ok;
+    }
 
     update_status(&if lang_is_pl { format!("Instalowanie (Winget): {}", pkg_name) } else { format!("Installing (Winget): {}", pkg_name) });
     let success_winget = Command::new("winget")
@@ -1446,18 +1465,7 @@ fn install_package(winget_id: &str, pkg_name: &str, lang_is_pl: bool, status: &A
         "TikTok.TikTok" => "https://apps.microsoft.com/detail/9nh2gph4jzs4".to_string(),
         "Transmission.Transmission" => "https://transmissionbt.com/download".to_string(),
         "Twitch.Twitch" => "https://www.twitch.tv/downloads".to_string(),
-        "Microsoft.VCRedist.2005.x64" => "https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist".to_string(),
-        "Microsoft.VCRedist.2005.x86" => "https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist".to_string(),
-        "Microsoft.VCRedist.2008.x64" => "https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist".to_string(),
-        "Microsoft.VCRedist.2008.x86" => "https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist".to_string(),
-        "Microsoft.VCRedist.2010.x64" => "https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist".to_string(),
-        "Microsoft.VCRedist.2010.x86" => "https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist".to_string(),
-        "Microsoft.VCRedist.2012.x64" => "https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist".to_string(),
-        "Microsoft.VCRedist.2012.x86" => "https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist".to_string(),
-        "Microsoft.VCRedist.2013.x64" => "https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist".to_string(),
-        "Microsoft.VCRedist.2013.x86" => "https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist".to_string(),
-        "Microsoft.VCRedist.2015+.x64" => "https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist".to_string(),
-        "Microsoft.VCRedist.2015+.x86" => "https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist".to_string(),
+        "Meta.VCRedistAll" => "https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist".to_string(),
         "ventoy.Ventoy" => "https://www.ventoy.net/en/download.html".to_string(),
         "Oracle.VirtualBox" => "https://www.virtualbox.org/wiki/Downloads".to_string(),
         "AtomixProductions.VirtualDJ" => "https://www.virtualdj.com/download/".to_string(),
