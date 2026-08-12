@@ -78,6 +78,8 @@ If you find this tool helpful and it saved you some time, consider buying me a c
 
 [![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://buymeacoffee.com/bartekszczecinski)
 
+<img width="1920" height="1080" alt="Screenshot_win10_2026-08-12_17:04:10" src="https://github.com/user-attachments/assets/382d9dff-04f6-4a17-94af-2ea78e0e482a" />
+
 ---
 
 ## ⚠️ Disclaimer
@@ -86,5 +88,3 @@ If you find this tool helpful and it saved you some time, consider buying me a c
 
 ---
 Made with passion in 🦀 **Rust**. If you find this project useful, leave a star! ⭐
-
-<img width="1740" height="934" alt="Zrzut ekranu_20260708_150716" src="https://github.com/user-attachments/assets/a2e4021f-399f-4952-ba8e-50b8bb539e77" />
