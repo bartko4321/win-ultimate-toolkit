@@ -50,7 +50,7 @@ To compile the project from source, you need a Rust environment (Cargo) installe
 
 1. Clone this repository
    ```bash
-   git clone https://github.com/bartko4321/win-ultimate-toolkit.git
+   git clone https://github.com/syscore88/win-ultimate-toolkit.git
    ```
    
 2. Enter the downloaded folder
